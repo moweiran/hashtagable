@@ -41,7 +41,7 @@ TextSpan getHashTagTextSpan({
   required TextStyle decoratedStyle,
   required TextStyle basicStyle,
   required String source,
-  Function(String)? onTap,
+  Function(String?)? onTap,
   bool decorateAtSign = false,
 }) {
   final decorations = Detector(
@@ -62,6 +62,8 @@ TextSpan getHashTagTextSpan({
                 final decoration = decorations[index];
                 if (decoration.style == decoratedStyle) {
                   onTap!(decoration.range.textInside(source).trim());
+                } else {
+                  onTap!(null);
                 }
               };
             return MapEntry(

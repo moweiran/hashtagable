@@ -27,7 +27,7 @@ class HashTagText extends StatelessWidget {
   final String text;
   final TextStyle basicStyle;
   final TextStyle decoratedStyle;
-  final Function(String)? onTap;
+  final Function(String?)? onTap;
   final TextAlign textAlign;
   final TextDirection? textDirection;
   final bool softWrap;
@@ -44,11 +44,12 @@ class HashTagText extends StatelessWidget {
   Widget build(BuildContext context) {
     return RichText(
       text: getHashTagTextSpan(
-          decoratedStyle: decoratedStyle,
-          decorateAtSign: decorateAtSign,
-          basicStyle: basicStyle,
-          onTap: onTap,
-          source: text),
+        decoratedStyle: decoratedStyle,
+        decorateAtSign: decorateAtSign,
+        basicStyle: basicStyle,
+        onTap: onTap,
+        source: text,
+      ),
       textAlign: textAlign,
       textDirection: textDirection,
       softWrap: softWrap,
